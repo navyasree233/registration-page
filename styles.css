@@ -1,0 +1,287 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #c9e8fd, #1675b4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative; /* Required for positioning the triangles */
+  }
+    
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: 250px;
+  padding: 20px;
+  border: 1px solid white;
+  border-radius: 5px;
+  text-align: center;
+  background-color: linear-gradient(to right, #81bde6, #3498db);
+  box-shadow: #041d2e;
+}
+
+.field {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.field input {
+  display: block;
+  height: 30px;
+  width: calc(90% - 20px);
+  padding-left: 40px;
+  border-radius: 30px;
+  border-width: 0.5px;
+}
+
+.field .icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.custom-btn {
+  margin-top: 2vw;
+  width: 200px;
+  background: linear-gradient(
+    to right,
+    #041d2e,
+    #3498db
+  ); 
+  color: white; 
+  border-width: 0.5px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.custom-btn:hover {
+  scale: 1.12;
+}
+
+.header {
+  margin-bottom: 10px; /* Add bottom margin */
+}
+.inline {
+  display: inline; /* Ensures inline display */
+  margin: 0; /* Removes default margin */
+}
+
+.blue {
+  color: #041d2e;
+  background: linear-gradient(to right, #041d2e, #174d70);
+  background-clip: text; /* Standard property for compatibility */
+  -webkit-background-clip: text; /* For older WebKit browsers */
+  -webkit-text-fill-color: transparent; /* For older WebKit browsers */
+}
+
+.bubbles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+.bubble {
+  position: absolute;
+  bottom: -100px;
+  width: 40px;
+  height: 40px;
+  background: #f1f1f1;
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: rise 10s infinite ease-in;
+}
+.bubble:nth-child(1) {
+  width: 40px;
+  height: 40px;
+  left: 10%;
+  animation-duration: 8s;
+}
+.bubble:nth-child(2) {
+  width: 20px;
+  height: 20px;
+  left: 20%;
+  animation-duration: 5s;
+  animation-delay: 1s;
+}
+.bubble:nth-child(3) {
+  width: 50px;
+  height: 50px;
+  left: 35%;
+  animation-duration: 7s;
+  animation-delay: 2s;
+}
+.bubble:nth-child(4) {
+  width: 80px;
+  height: 80px;
+  left: 50%;
+  animation-duration: 11s;
+  animation-delay: 0s;
+}
+.bubble:nth-child(5) {
+  width: 35px;
+  height: 35px;
+  left: 55%;
+  animation-duration: 6s;
+  animation-delay: 1s;
+}
+.bubble:nth-child(6) {
+  width: 45px;
+  height: 45px;
+  left: 65%;
+  animation-duration: 8s;
+  animation-delay: 3s;
+}
+.bubble:nth-child(7) {
+  width: 90px;
+  height: 90px;
+  left: 70%;
+  animation-duration: 12s;
+  animation-delay: 2s;
+}
+.bubble:nth-child(8) {
+  width: 25px;
+  height: 25px;
+  left: 80%;
+  animation-duration: 6s;
+  animation-delay: 2s;
+}
+.bubble:nth-child(9) {
+  width: 15px;
+  height: 15px;
+  left: 70%;
+  animation-duration: 5s;
+  animation-delay: 1s;
+}
+.bubble:nth-child(10) {
+  width: 90px;
+  height: 90px;
+  left: 25%;
+  animation-duration: 10s;
+  animation-delay: 4s;
+}
+@keyframes rise {
+  0% {
+    bottom: -100px;
+    transform: translateX(0);
+  }
+  50% {
+    transform: translate(100px);
+  }
+  100% {
+    bottom: 1080px;
+    transform: translateX(-200px);
+  }
+}
+
+.lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-end; /* Align lines to the right */
+    align-items: flex-end; /* Align lines to the bottom */
+}
+
+.line-container {
+    position: relative; /* Make the container relative to allow positioning of lines */
+}
+
+.line {
+    width: 50%; /* Make the width 50% of the container */
+    height: 10px; /* Adjust the height of the lines as needed */
+    background: linear-gradient(to right, #07578d, #69abe6); 
+    transform: rotate(-25deg); 
+    position: absolute;
+    bottom: -10px;
+    right: -50px; /* Adjust the position of the lines */
+}
+
+.line:nth-child(2) {
+    margin-bottom: 4%; /* Add some margin between the lines */
+}
+
+.line:nth-child(3) {
+    margin-bottom: 8%; /* Add some margin between the lines */
+}
+
+@media (max-width: 768px) {
+    .lines {
+        justify-content: center; /* Align lines to the center for smaller screens */
+    }
+}
+
+
+
+.top-triangle,.bottom-triangle {
+    position: absolute;
+    content: "";
+    z-index: 2;
+}
+.top-triangle {
+    border-bottom: 20vh solid transparent;
+    border-left: 20vw solid #174d70;
+    top: 0;
+    left: 0;
+    transition: border-bottom 1s ease, border-left 1s ease; 
+}
+
+.bottom-triangle {
+    border-top: 20vh solid transparent;
+    border-right: 20vw solid #174d70;
+    bottom: 0;
+    right: 0;
+    transition: border-top 1s ease, border-right 1s ease; 
+}
+
+.top-closed {
+    border-bottom: 100vh solid transparent;
+    border-left: 100vw solid #174d70;
+}
+
+.bottom-closed {
+    border-top: 100vh solid transparent;
+    border-right: 100vw solid #69abe6;
+}
+
+.animation-text {
+    position: absolute;
+    right: 10vw;
+    bottom: 20vh;
+    text-align: center;
+    display: none;
+}
+
+.animation-text h2 {
+    color: black;
+    font-size: 5vw;
+    transition: opacity 10s ease-in-out;
+}
+
+
+.custom-btn[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.error {
+  display: none;
+   color: red;
+   margin-top: 10px;
+}
